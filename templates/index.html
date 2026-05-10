@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IPL Analytics Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <div class="logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="14" fill="#D85A30"/><circle cx="14" cy="14" r="9" stroke="white" stroke-width="1.5"/><line x1="14" y1="5" x2="14" y2="23" stroke="white" stroke-width="1.5"/><line x1="5" y1="14" x2="23" y2="14" stroke="white" stroke-width="1.5"/></svg>
+        <span>IPL Analytics</span>
+      </div>
+      <p class="header-sub">Indian Premier League · Match &amp; Delivery Data Explorer</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="metrics" id="metrics">
+      <div class="metric-card">
+        <div class="metric-label">Total matches</div>
+        <div class="metric-value" id="stat-matches">—</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Most successful team</div>
+        <div class="metric-value" id="stat-wins">—</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Top run scorer</div>
+        <div class="metric-value" id="stat-batter">—</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">Top venue</div>
+        <div class="metric-value" id="stat-venue">—</div>
+      </div>
+    </section>
+
+    <section class="charts-grid">
+      <div class="chart-card full">
+        <h2>Most successful teams</h2>
+        <p class="chart-sub">Total wins per franchise across all IPL seasons</p>
+        <div class="canvas-wrap" style="height:300px"><canvas id="chartWins" role="img" aria-label="Bar chart of IPL team wins"></canvas></div>
+      </div>
+
+      <div class="chart-card">
+        <h2>Toss winners</h2>
+        <p class="chart-sub">Teams winning the most tosses</p>
+        <div class="canvas-wrap" style="height:280px"><canvas id="chartToss" role="img" aria-label="Toss winners bar chart"></canvas></div>
+      </div>
+
+      <div class="chart-card">
+        <h2>Player of the match</h2>
+        <p class="chart-sub">Top 10 award winners</p>
+        <div class="canvas-wrap" style="height:280px"><canvas id="chartPotm" role="img" aria-label="Player of the match bar chart"></canvas></div>
+      </div>
+
+      <div class="chart-card full">
+        <h2>Total runs by team</h2>
+        <p class="chart-sub">Aggregate runs from deliveries data</p>
+        <div class="canvas-wrap" style="height:300px"><canvas id="chartRuns" role="img" aria-label="Team total runs bar chart"></canvas></div>
+      </div>
+
+      <div class="chart-card">
+        <h2>Top batsmen</h2>
+        <p class="chart-sub">Top 10 by career runs</p>
+        <div class="canvas-wrap" style="height:300px"><canvas id="chartBat" role="img" aria-label="Top batsmen horizontal bar chart"></canvas></div>
+      </div>
+
+      <div class="chart-card">
+        <h2>Top bowlers</h2>
+        <p class="chart-sub">Top 10 by wickets taken</p>
+        <div class="canvas-wrap" style="height:300px"><canvas id="chartBowl" role="img" aria-label="Top bowlers horizontal bar chart"></canvas></div>
+      </div>
+
+      <div class="chart-card full">
+        <h2>Top venues</h2>
+        <p class="chart-sub">Stadiums hosting the most IPL matches</p>
+        <div class="canvas-wrap" style="height:280px"><canvas id="chartVenues" role="img" aria-label="Top venues bar chart"></canvas></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built with Flask &amp; Chart.js · Data from IPL matches &amp; deliveries CSV</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
